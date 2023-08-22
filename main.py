@@ -4,8 +4,8 @@ from database import engine,SessionLocal
 from sqlalchemy.orm import Session
 from pydantic import BaseModel,Field
 from typing import Optional
-from authentication.auth import router,get_current_user,get_user_exception
-from authentication import auth,datahandler,admin,users,loanofficer
+from routers.auth import router,get_current_user,get_user_exception
+from routers import auth,datahandler,admin,users,loanofficer
 
 app = FastAPI()
 
