@@ -95,7 +95,7 @@ async def get_current_user(token : str = Depends(oauth2_bearer)):
         raise get_user_exception()
 
 
-@router.post('/userlogin')
+@router.post('/login/user')
 async def user_login(form_data : OAuth2PasswordRequestForm= Depends(),db: Session= Depends(get_db)):
     user = authenticate_user(form_data.username,form_data.password,db)
     if not user:
@@ -106,7 +106,7 @@ async def user_login(form_data : OAuth2PasswordRequestForm= Depends(),db: Sessio
 
     return {"token" : token}
 
-@router.post('/officerlogin')
+@router.post('/login/officer')
 async def officer_login(form_data :OAuth2PasswordRequestForm = Depends(),db :Session=Depends(get_db)):
     officer = authenticate_officer(form_data.username,form_data.password,db)
     if not officer:
@@ -117,7 +117,7 @@ async def officer_login(form_data :OAuth2PasswordRequestForm = Depends(),db :Ses
 
     return{"token" : token}
 
-@router.post("/adminlogin")
+@router.post("/login/admin")
 async def admin_login(form_data:OAuth2PasswordRequestForm=Depends(),db : Session = Depends(get_db)):
     admin = authenticate_admin(form_data.username,form_data.password,db)
     if not admin:

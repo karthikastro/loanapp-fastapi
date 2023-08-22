@@ -32,4 +32,4 @@ def get_db():
 app.include_router(auth.router)
 app.include_router(admin.router)
 app.include_router(users.router)
-app.include_router(loanofficer.router)
+app.include_router(loanofficer.router)  
